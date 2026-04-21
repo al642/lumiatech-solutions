@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
 
-const stats = [
-  { value: "99.9%", label: "uptime-minded delivery" },
-  { value: "48 hrs", label: "rapid response window" },
-  { value: "24/7", label: "monitoring-ready systems" },
-];
-
 const slides = [
   {
     image:

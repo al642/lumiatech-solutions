@@ -1,18 +1,23 @@
+import logoDark from "../assets/logos/logo-dark.png";
+import logoLight from "../assets/logos/logo-light.png";
+
 const navItems = [
   { label: "Solutions", href: "#solutions" },
   { label: "Approach", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Header() {
+export default function Header({ theme, onToggleTheme }) {
+  const nextTheme = theme === "dark" ? "light" : "dark";
+
   return (
     <header className="topbar">
       <a className="brand" href="#top" aria-label="LumiaTech Solutions home">
-        <span className="brand-mark">L</span>
-        <span className="brand-copy">
-          <strong>LumiaTech</strong>
-          <span>Solutions</span>
-        </span>
+        <img
+          className="brand-logo"
+          src={theme === "dark" ? logoDark : logoLight}
+          alt="LumiaTech Solutions"
+        />
       </a>
 
       <nav className="nav" aria-label="Primary">
@@ -23,9 +28,21 @@ export default function Header() {
         ))}
       </nav>
 
-      <a className="button button-primary button-small" href="#contact">
-        Book a consult
-      </a>
+      <div className="topbar-actions">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={`Switch to ${nextTheme} mode`}
+          title={`Switch to ${nextTheme} mode`}
+        >
+          <span>{theme === "dark" ? "Dark" : "Light"}</span>
+        </button>
+
+        <a className="button button-primary button-small" href="#contact">
+          Book a consult
+        </a>
+      </div>
     </header>
   );
 }

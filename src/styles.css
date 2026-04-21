@@ -5,7 +5,7 @@
   line-height: 1.5;
   font-weight: 400;
   color: #f5f7f3;
-  background:
+  --page-bg:
     radial-gradient(circle at 12% 8%, rgba(184, 255, 90, 0.1), transparent 24%),
     radial-gradient(circle at 86% 14%, rgba(255, 255, 255, 0.07), transparent 18%),
     linear-gradient(180deg, #020303 0%, #060807 48%, #020303 100%);
@@ -17,10 +17,74 @@
   --surface-strong: rgba(9, 10, 9, 0.92);
   --border: rgba(255, 255, 255, 0.1);
   --text-soft: rgba(245, 247, 243, 0.66);
+  --text-strong: #f5f7f3;
+  --hover-strong: #ffffff;
   --mint: #b8ff5a;
   --amber: #d1ff7a;
+  --topbar-bg: rgba(7, 8, 7, 0.78);
+  --secondary-bg: rgba(255, 255, 255, 0.02);
+  --secondary-bg-hover: rgba(255, 255, 255, 0.06);
+  --button-primary-text: #050605;
+  --toggle-bg: rgba(255, 255, 255, 0.02);
+  --toggle-bg-hover: rgba(255, 255, 255, 0.06);
+  --card-shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
+  --hero-frame-bg: linear-gradient(160deg, rgba(13, 16, 13, 0.96), rgba(7, 8, 7, 0.92));
+  --hero-caption: rgba(245, 247, 243, 0.82);
+  --dot-bg: rgba(255, 255, 255, 0.4);
+  --dot-ring: rgba(184, 255, 90, 0.18);
+  --card-subtle-bg: rgba(255, 255, 255, 0.025);
+  --stat-bg: rgba(255, 255, 255, 0.03);
+  --chip-bg: rgba(255, 255, 255, 0.02);
+  --row-border: rgba(255, 255, 255, 0.08);
+  --contact-panel-bg:
+    radial-gradient(circle at top right, rgba(184, 255, 90, 0.08), transparent 28%),
+    rgba(8, 9, 8, 0.82);
+  --contact-accent-bg:
+    linear-gradient(180deg, rgba(184, 255, 90, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(12, 14, 12, 0.94);
+  --footer-border: rgba(255, 255, 255, 0.08);
+  --focus-ring: rgba(184, 255, 90, 0.4);
   --max-width: 1240px;
   scroll-behavior: smooth;
+}
+
+:root[data-theme="light"] {
+  color: #11151d;
+  --page-bg:
+    radial-gradient(circle at 14% 8%, rgba(32, 139, 255, 0.1), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(66, 211, 146, 0.12), transparent 18%),
+    linear-gradient(180deg, #f6f8fb 0%, #eef3f8 48%, #f8fafc 100%);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --border: rgba(17, 21, 29, 0.1);
+  --text-soft: rgba(17, 21, 29, 0.68);
+  --text-strong: #11151d;
+  --hover-strong: #11151d;
+  --mint: #12a85d;
+  --amber: #0e7be6;
+  --topbar-bg: rgba(255, 255, 255, 0.72);
+  --secondary-bg: rgba(17, 21, 29, 0.04);
+  --secondary-bg-hover: rgba(17, 21, 29, 0.08);
+  --button-primary-text: #ffffff;
+  --toggle-bg: rgba(17, 21, 29, 0.04);
+  --toggle-bg-hover: rgba(17, 21, 29, 0.08);
+  --card-shadow: 0 24px 60px rgba(27, 39, 51, 0.08);
+  --hero-frame-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(242, 247, 252, 0.9));
+  --hero-caption: rgba(255, 255, 255, 0.88);
+  --dot-bg: rgba(17, 21, 29, 0.24);
+  --dot-ring: rgba(14, 123, 230, 0.16);
+  --card-subtle-bg: rgba(255, 255, 255, 0.48);
+  --stat-bg: rgba(255, 255, 255, 0.68);
+  --chip-bg: rgba(255, 255, 255, 0.56);
+  --row-border: rgba(17, 21, 29, 0.08);
+  --contact-panel-bg:
+    radial-gradient(circle at top right, rgba(14, 123, 230, 0.08), transparent 28%),
+    rgba(255, 255, 255, 0.82);
+  --contact-accent-bg:
+    linear-gradient(180deg, rgba(18, 168, 93, 0.08), rgba(255, 255, 255, 0.5)),
+    rgba(255, 255, 255, 0.96);
+  --footer-border: rgba(17, 21, 29, 0.08);
+  --focus-ring: rgba(14, 123, 230, 0.28);
 }
 
 * {
@@ -36,7 +100,8 @@ body,
 
 body {
   min-width: 320px;
-  background: transparent;
+  color: var(--text-strong);
+  background: var(--page-bg);
 }
 
 a {
@@ -76,7 +141,7 @@ a:hover {
   margin-bottom: 28px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(7, 8, 7, 0.78);
+  background: var(--topbar-bg);
   backdrop-filter: blur(22px);
 }
 
@@ -86,30 +151,10 @@ a:hover {
   gap: 12px;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
+.brand-logo {
+  display: block;
   height: 42px;
-  border-radius: 14px;
-  border: 1px solid rgba(184, 255, 90, 0.34);
-  background: rgba(184, 255, 90, 0.1);
-  color: var(--mint);
-  font-weight: 800;
-}
-
-.brand-copy {
-  display: grid;
-  gap: 2px;
-}
-
-.brand-copy strong {
-  font-size: 0.98rem;
-}
-
-.brand-copy span {
-  color: var(--text-soft);
-  font-size: 0.84rem;
+  width: auto;
 }
 
 .nav {
@@ -120,8 +165,14 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .nav a:hover {
-  color: white;
+  color: var(--hover-strong);
 }
 
 .button {
@@ -147,12 +198,41 @@ a:hover {
 
 .button-primary {
   background: var(--mint);
-  color: #050605;
+  color: var(--button-primary-text);
   border-color: transparent;
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--secondary-bg);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.button-secondary:hover,
+.theme-toggle:hover {
+  background: var(--secondary-bg-hover);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .hero,
@@ -237,13 +317,13 @@ a:hover {
 .hero-slider-frame {
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
+  box-shadow: var(--card-shadow);
 }
 
 .stat-card {
   padding: 18px 16px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--stat-bg);
 }
 
 .stat-card strong {
@@ -291,9 +371,7 @@ a:hover {
   width: min(100%, 620px);
   min-height: 520px;
   border-radius: 32px;
-  background:
-    linear-gradient(160deg, rgba(13, 16, 13, 0.96), rgba(7, 8, 7, 0.92)),
-    var(--surface);
+  background: var(--hero-frame-bg), var(--surface);
   overflow: hidden;
 }
 
@@ -360,7 +438,7 @@ a:hover {
 .hero-slide-copy p:last-child {
   margin: 0;
   max-width: 34ch;
-  color: rgba(245, 247, 243, 0.82);
+  color: var(--hero-caption);
 }
 
 .hero-slider-dots {
@@ -378,13 +456,13 @@ a:hover {
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--dot-bg);
   cursor: pointer;
 }
 
 .hero-slider-dots button.is-active {
   background: var(--mint);
-  box-shadow: 0 0 0 6px rgba(184, 255, 90, 0.18);
+  box-shadow: 0 0 0 6px var(--dot-ring);
 }
 
 .section {
@@ -432,7 +510,7 @@ a:hover {
 .list-panel {
   padding: 22px;
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.025);
+  background: var(--card-subtle-bg);
 }
 
 .feature-card h3,
@@ -456,7 +534,8 @@ a:hover {
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--chip-bg);
+  box-shadow: var(--card-shadow);
 }
 
 .value-chip p {
@@ -481,7 +560,7 @@ a:hover {
   align-items: flex-start;
   gap: 16px;
   padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--row-border);
 }
 
 .list-row:last-child {
@@ -504,9 +583,8 @@ a:hover {
   padding: 28px;
   border: 1px solid var(--border);
   border-radius: 30px;
-  background:
-    radial-gradient(circle at top right, rgba(184, 255, 90, 0.08), transparent 28%),
-    rgba(8, 9, 8, 0.82);
+  background: var(--contact-panel-bg);
+  box-shadow: var(--card-shadow);
 }
 
 .contact-grid {
@@ -514,9 +592,7 @@ a:hover {
 }
 
 .contact-card-accent {
-  background:
-    linear-gradient(180deg, rgba(184, 255, 90, 0.08), rgba(255, 255, 255, 0.02)),
-    rgba(12, 14, 12, 0.94);
+  background: var(--contact-accent-bg);
 }
 
 .contact-label {
@@ -541,13 +617,13 @@ a:hover {
   gap: 24px;
   padding: 64px 0 28px;
   color: var(--text-soft);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--footer-border);
   margin-top: 64px;
 }
 
 .footer-title {
   margin: 0 0 10px;
-  color: white;
+  color: var(--text-strong);
   font-size: 1.08rem;
   font-weight: 700;
 }
@@ -582,7 +658,8 @@ a:hover {
   }
 
   .topbar,
-  .nav {
+  .nav,
+  .topbar-actions {
     flex-wrap: wrap;
   }
 
@@ -592,6 +669,10 @@ a:hover {
   }
 
   .topbar .button-small {
+    width: 100%;
+  }
+
+  .theme-toggle {
     width: 100%;
   }
 
