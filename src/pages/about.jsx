@@ -19,9 +19,9 @@ export default function About() {
         </div>
 
         <div className="list-panel">
-          {principles.map((item) => (
+          {principles.map((item, index) => (
             <div key={item} className="list-row">
-              <span className="list-dot" />
+              <span className="list-count">{String(index + 1).padStart(2, "0")}</span>
               <p>{item}</p>
             </div>
           ))}

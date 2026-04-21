@@ -1,10 +1,43 @@
+import { useEffect, useState } from "react";
+
 const stats = [
   { value: "99.9%", label: "uptime-minded delivery" },
   { value: "48 hrs", label: "rapid response window" },
   { value: "24/7", label: "monitoring-ready systems" },
 ];
 
+const slides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80",
+    title: "Modern workspaces",
+    text: "Digital environments designed for focus, collaboration, and smoother delivery.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80",
+    title: "Connected teams",
+    text: "Systems that keep communication, automation, and execution in sync.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+    title: "Practical innovation",
+    text: "Technology choices grounded in real operations, clear goals, and measurable outcomes.",
+  },
+];
+
 export default function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
@@ -23,37 +56,42 @@ export default function Hero() {
             Explore services
           </a>
         </div>
-        <div className="stats-grid" aria-label="Key company metrics">
-          {stats.map((stat) => (
-            <article key={stat.label} className="stat-card">
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </article>
-          ))}
-        </div>
       </div>
 
-      <div className="hero-visual" aria-hidden="true">
+      <div
+        className="hero-visual hero-slider"
+        aria-label="LumiaTech project photography"
+      >
         <div className="orb orb-a" />
         <div className="orb orb-b" />
-        <div className="signal-panel">
-          <div className="signal-header">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className="signal-screen">
-            <div className="screen-grid" />
-            <div className="screen-card screen-card-main">
-              <small>Infrastructure</small>
-              <strong>Cloud migration</strong>
-            </div>
-            <div className="screen-card screen-card-side">
-              <small>Automation</small>
-              <strong>+38% faster workflows</strong>
-            </div>
-            <div className="screen-line screen-line-one" />
-            <div className="screen-line screen-line-two" />
+        <div className="hero-slider-frame">
+          {slides.map((slide, index) => (
+            <article
+              key={slide.title}
+              className={`hero-slide ${index === activeSlide ? "is-active" : ""}`}
+              aria-hidden={index === activeSlide ? "false" : "true"}
+            >
+              <img src={slide.image} alt={slide.title} />
+              <div className="hero-slide-overlay" />
+              <div className="hero-slide-copy">
+                <p className="hero-slide-kicker">Featured view</p>
+                <h2>{slide.title}</h2>
+                <p>{slide.text}</p>
+              </div>
+            </article>
+          ))}
+
+          <div className="hero-slider-dots" aria-label="Hero slide controls">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.title}
+                type="button"
+                className={index === activeSlide ? "is-active" : ""}
+                aria-label={`Show slide ${index + 1}: ${slide.title}`}
+                aria-pressed={index === activeSlide}
+                onClick={() => setActiveSlide(index)}
+              />
+            ))}
           </div>
         </div>
       </div>

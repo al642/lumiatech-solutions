@@ -26,8 +26,9 @@ export default function Services() {
       </div>
 
       <div className="services-grid">
-        {services.map((service) => (
+        {services.map((service, index) => (
           <article key={service.title} className="service-card">
+            <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
             <h3>{service.title}</h3>
             <p>{service.text}</p>
           </article>

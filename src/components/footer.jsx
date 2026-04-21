@@ -10,7 +10,7 @@ export default function Footer() {
       </div>
       <div className="footer-meta">
         <a href="mailto:hello@lumiatechsolutions.com">hello@lumiatechsolutions.com</a>
-        <span>Remote-first delivery across product, cloud, and IT operations</span>
+        <span>Remote-first delivery across product, cloud, and IT operations.</span>
       </div>
     </footer>
   );

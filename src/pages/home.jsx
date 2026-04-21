@@ -22,8 +22,9 @@ export default function Home() {
       </div>
 
       <div className="feature-grid">
-        {highlights.map((item) => (
+        {highlights.map((item, index) => (
           <article key={item.title} className="feature-card">
+            <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>

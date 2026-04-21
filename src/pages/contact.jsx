@@ -19,9 +19,9 @@ export default function Contact() {
 
         <div className="contact-grid">
           <div className="contact-card">
-            {contactPoints.map((point) => (
+            {contactPoints.map((point, index) => (
               <div key={point} className="list-row">
-                <span className="list-dot" />
+                <span className="list-count">{String(index + 1).padStart(2, "0")}</span>
                 <p>{point}</p>
               </div>
             ))}
