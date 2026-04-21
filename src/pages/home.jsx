@@ -13,12 +13,23 @@ const highlights = [
   },
 ];
 
+const principles = [
+  "Clear communication from discovery to deployment",
+  "Solutions designed around business goals, not hype",
+  "Support that continues after launch",
+];
+
 export default function Home() {
   return (
     <section className="section" id="process">
       <div className="section-heading">
         <p className="eyebrow">What we bring</p>
         <h2>Technology execution that balances speed, clarity, and long-term support.</h2>
+        <p>
+          Whether you need a clean marketing site, an internal operations
+          tool, a cloud refresh, or ongoing IT support, we focus on solutions
+          that are maintainable, measurable, and built for real teams.
+        </p>
       </div>
 
       <div className="feature-grid">
@@ -28,6 +39,15 @@ export default function Home() {
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>
+        ))}
+      </div>
+
+      <div className="value-strip" aria-label="Why teams choose LumiaTech">
+        {principles.map((item, index) => (
+          <div key={item} className="value-chip">
+            <span className="list-count">{String(index + 1).padStart(2, "0")}</span>
+            <p>{item}</p>
+          </div>
         ))}
       </div>
     </section>

@@ -407,7 +407,8 @@ a:hover {
 
 .feature-grid,
 .services-grid,
-.contact-grid {
+.contact-grid,
+.value-strip {
   display: grid;
   gap: 16px;
   margin-top: 24px;
@@ -419,6 +420,10 @@ a:hover {
 
 .services-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.value-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .feature-card,
@@ -442,6 +447,21 @@ a:hover {
   color: rgba(245, 247, 243, 0.48);
   font-size: 0.74rem;
   letter-spacing: 0.14em;
+}
+
+.value-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.value-chip p {
+  margin: 0;
+  color: var(--text-soft);
 }
 
 .split-layout {
@@ -556,6 +576,7 @@ a:hover {
   .contact-grid,
   .feature-grid,
   .services-grid,
+  .value-strip,
   .footer {
     grid-template-columns: 1fr;
   }
