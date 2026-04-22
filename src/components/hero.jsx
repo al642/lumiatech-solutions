@@ -33,60 +33,62 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero" id="top">
-      <div className="hero-copy">
-        <p className="eyebrow">Tech solutions for ambitious teams</p>
-        <h1>Build smarter systems, sharper products, and reliable digital operations.</h1>
-        <p className="hero-text">
-          LumiaTech Solutions helps startups, SMEs, and growing organizations
-          modernize their digital stack with product design, cloud services,
-          business automation, cybersecurity support, and hands-on IT delivery.
-        </p>
-        <div className="hero-actions">
-          <a className="button button-primary" href="#contact">
-            Start your project
-          </a>
-          <a className="button button-secondary" href="#solutions">
-            Explore services
-          </a>
-        </div>
-      </div>
+    <section
+      className="hero hero-slider"
+      id="top"
+      aria-label="LumiaTech project photography"
+    >
+      <div className="orb orb-a" />
+      <div className="orb orb-b" />
+      <div className="hero-slider-frame">
+        {slides.map((slide, index) => (
+          <article
+            key={slide.title}
+            className={`hero-slide ${index === activeSlide ? "is-active" : ""}`}
+            aria-hidden={index === activeSlide ? "false" : "true"}
+          >
+            <img src={slide.image} alt={slide.title} />
+            <div className="hero-slide-overlay" />
+          </article>
+        ))}
 
-      <div
-        className="hero-visual hero-slider"
-        aria-label="LumiaTech project photography"
-      >
-        <div className="orb orb-a" />
-        <div className="orb orb-b" />
-        <div className="hero-slider-frame">
-          {slides.map((slide, index) => (
-            <article
-              key={slide.title}
-              className={`hero-slide ${index === activeSlide ? "is-active" : ""}`}
-              aria-hidden={index === activeSlide ? "false" : "true"}
-            >
-              <img src={slide.image} alt={slide.title} />
-              <div className="hero-slide-overlay" />
-              <div className="hero-slide-copy">
-                <p className="hero-slide-kicker">Featured view</p>
-                <h2>{slide.title}</h2>
-                <p>{slide.text}</p>
-              </div>
-            </article>
-          ))}
-
-          <div className="hero-slider-dots" aria-label="Hero slide controls">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.title}
-                type="button"
-                className={index === activeSlide ? "is-active" : ""}
-                aria-label={`Show slide ${index + 1}: ${slide.title}`}
-                aria-pressed={index === activeSlide}
-                onClick={() => setActiveSlide(index)}
-              />
-            ))}
+        <div className="hero-content">
+          <div className="hero-copy">
+            <p className="eyebrow">Tech solutions for ambitious teams</p>
+            <h1>Build smarter systems, sharper products, and reliable digital operations.</h1>
+            <p className="hero-text">
+              LumiaTech Solutions helps startups, SMEs, and growing organizations
+              modernize their digital stack with product design, cloud services,
+              business automation, cybersecurity support, and hands-on IT delivery.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#contact">
+                Start your project
+              </a>
+              <a className="button button-secondary" href="#solutions">
+                Explore services
+              </a>
+            </div>
           </div>
+
+          <div className="hero-slide-copy">
+            <p className="hero-slide-kicker">Featured view</p>
+            <h2>{slides[activeSlide].title}</h2>
+            <p>{slides[activeSlide].text}</p>
+          </div>
+        </div>
+
+        <div className="hero-slider-dots" aria-label="Hero slide controls">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.title}
+              type="button"
+              className={index === activeSlide ? "is-active" : ""}
+              aria-label={`Show slide ${index + 1}: ${slide.title}`}
+              aria-pressed={index === activeSlide}
+              onClick={() => setActiveSlide(index)}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import logoDark from "../assets/logos/lumiatech_dark_logo.jpeg";
-import logoLight from "../assets/logos/lumiatech_light_logo.jpeg";
+import logoDark from "../assets/logos/logo-dark.png";
+import logoLight from "../assets/logos/logo-light.png";
 
 const navItems = [
   { label: "Solutions", href: "#solutions" },
