@@ -29,14 +29,6 @@ export default function Footer() {
           >
             Instagram
           </a>
-          <a
-            className="footer-social"
-            href="https://facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </a>
         </div>
         <span>Remote-first delivery across product, cloud, and IT operations.</span>
       </div>
