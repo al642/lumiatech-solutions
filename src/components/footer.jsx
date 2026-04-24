@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="footer-meta">
         <a href="mailto:hello@lumiatechsolutions.com">hello@lumiatechsolutions.com</a>
         <a href="tel:+256777938415">+256777938415</a>
-        <a href="tel:+2567746886326">+2567746886326</a>
+        <a href="tel:+256746886326">+256746886326</a>
         <div className="footer-socials">
           <a
             className="footer-social"

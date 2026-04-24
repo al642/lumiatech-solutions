@@ -416,6 +416,7 @@ button:focus-visible {
 
 .hero-slide img {
   object-fit: cover;
+  object-position: var(--slide-position, center);
 }
 
 .hero-slide-overlay {
@@ -775,6 +776,10 @@ button:focus-visible {
 
   .hero-content {
     min-height: 420px;
+  }
+
+  .hero-slide img {
+    object-position: center top;
   }
 
   .hero-slide-copy {

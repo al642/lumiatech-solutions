@@ -3,21 +3,24 @@ import { useEffect, useState } from "react";
 const slides = [
   {
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80",
-    title: "Modern workspaces",
-    text: "Digital environments designed for focus, collaboration, and smoother delivery.",
+      "https://images.pexels.com/photos/9301248/pexels-photo-9301248.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    title: "African-led delivery",
+    text: "Local teams shaping clear digital systems for practical business growth.",
+    position: "center 42%",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80",
-    title: "Connected teams",
-    text: "Systems that keep communication, automation, and execution in sync.",
+      "https://images.pexels.com/photos/4913749/pexels-photo-4913749.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    title: "Connected professionals",
+    text: "Tools and workflows built around how modern East African teams work.",
+    position: "center 36%",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/7651932/pexels-photo-7651932.jpeg?auto=compress&cs=tinysrgb&w=1600",
     title: "Practical innovation",
     text: "Technology choices grounded in real operations, clear goals, and measurable outcomes.",
+    position: "center 44%",
   },
 ];
 
@@ -46,6 +49,7 @@ export default function Hero() {
             key={slide.title}
             className={`hero-slide ${index === activeSlide ? "is-active" : ""}`}
             aria-hidden={index === activeSlide ? "false" : "true"}
+            style={{ "--slide-position": slide.position }}
           >
             <img src={slide.image} alt={slide.title} />
             <div className="hero-slide-overlay" />
